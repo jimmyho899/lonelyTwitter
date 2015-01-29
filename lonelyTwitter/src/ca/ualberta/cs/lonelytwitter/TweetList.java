@@ -2,32 +2,45 @@ package ca.ualberta.cs.lonelytwitter;
 
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class TweetList
 {
 
 	private ArrayList<LonelyTweetModel> tweetList;
-	private int count;
 	
 	public TweetList () {
 		this.tweetList = new ArrayList<LonelyTweetModel>();
-		count = 0;
 	}
+	
 	public ArrayList<LonelyTweetModel> getTweets()
 	{
-		
+		//for (tweet:tweetList) {
+			//tweet.getTimestamp();
+		//}
+		tweetList.toArray();
+		new Date(6767);
 		return tweetList;
 	}
 	
 	public int getCounts()
 	{
-
-		return count;
+		return tweetList.size();
 	}
-	public void addTweet(NormalTweetModel tweet)
+	
+	public void addTweet(LonelyTweetModel tweet) throws IllegalArgumentException
 	{
+		if (hasTweet(tweet)) {
+			throw new IllegalArgumentException();
+		}
 		tweetList.add(tweet);
-		count ++;
+	}
+	
+	public boolean hasTweet(LonelyTweetModel tweet) {
+		if (tweetList.contains(tweet)) 
+			return true;
+		else
+			return false;
 	}
 	
 }

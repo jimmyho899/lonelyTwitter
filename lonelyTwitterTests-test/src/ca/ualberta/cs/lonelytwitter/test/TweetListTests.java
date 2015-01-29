@@ -37,4 +37,23 @@ public class TweetListTests extends
 		tweetList.addTweet(tweet);
 		assertEquals("This should be one", tweetList.getCounts(), 1);
 	}
+	
+	public void testDuplicateTweet() {
+		TweetList tweetList = new TweetList();
+		NormalTweetModel tweet = new NormalTweetModel("Hello");
+		tweetList.addTweet(tweet);
+		//tweetList.addTweet(tweet);
+		
+	}
+	
+	public void testgetTweet() {
+		TweetList tweetList = new TweetList();
+		NormalTweetModel tweet = new NormalTweetModel("Hello");
+		tweetList.addTweet(tweet);
+		NormalTweetModel tweet2 = new NormalTweetModel("Hi");
+		tweetList.addTweet(tweet2);
+		
+		tweetList.getTweets();
+		
+	}
 }
